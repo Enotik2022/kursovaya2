@@ -21,7 +21,7 @@ void menu2(MUSIK* mus, int count);
 void menu1();
 MUSIK search(MUSIK* mus, int count);
 void sort(MUSIK* mus, int count);
-int writ(char* namefile, MUSIK* mus, int count);
+int write(char* namefile, MUSIK* mus, int count);
 int read(char* namefile);
 int main()
 {
@@ -32,28 +32,28 @@ int main()
 	MUSIK p;
 	MUSIK* mus = &p;
 	int size;
-	puts("Сколько пользователей ?" );
+	puts("РЎРєРѕР»СЊРєРѕ РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ ?");
 	scanf("%d", &size);
 	mus = (struct MUSIK*)malloc(size * sizeof(MUSIK));
 	int flag1 = 1, choice1, choice2, compl;
 	char namefile[100];
 	printf("_______________________________________\n");
-	printf("|             База данных             |\n");
-	printf("|Тема: Музыка                         |\n");
-	printf("|Выполнил: Бойченко Арсений Сергеевич |\n");
-	printf("|Группа: бИСТ-221                     |\n");
+	printf("|             Р‘Р°Р·Р° РґР°РЅРЅС‹С…             |\n");
+	printf("|РўРµРјР°: РњСѓР·С‹РєР°                         |\n");
+	printf("|Р’С‹РїРѕР»РЅРёР»: Р‘РѕР№С‡РµРЅРєРѕ РђСЂСЃРµРЅРёР№ РЎРµСЂРіРµРµРІРёС‡ |\n");
+	printf("|Р“СЂСѓРїРїР°: Р±РРЎРў-221                     |\n");
 	printf("|_____________________________________|\n");
 	system("pause");
 	while (flag1)
 	{
 		system("cls");
-		printf("Выберите функцию\n1.Ввод значений.\n2.Вывод значений\n3.Поиск структуры по заданному критерию\n4.Сортировка данных\n5.Запись данных в файл\n6.Чтение данных из файла\n0.Выход из программы\n");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ С„СѓРЅРєС†РёСЋ\n1.Р’РІРѕРґ Р·РЅР°С‡РµРЅРёР№.\n2.Р’С‹РІРѕРґ Р·РЅР°С‡РµРЅРёР№\n3.РџРѕРёСЃРє СЃС‚СЂСѓРєС‚СѓСЂС‹ РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РєСЂРёС‚РµСЂРёСЋ\n4.РЎРѕСЂС‚РёСЂРѕРІРєР° РґР°РЅРЅС‹С…\n5.Р—Р°РїРёСЃСЊ РґР°РЅРЅС‹С… РІ С„Р°Р№Р»\n6.Р§С‚РµРЅРёРµ РґР°РЅРЅС‹С… РёР· С„Р°Р№Р»Р°\n0.Р’С‹С…РѕРґ РёР· РїСЂРѕРіСЂР°РјРјС‹\n");
 		scanf("%d", &choice1);
 		system("cls");
 		switch (choice1)
 		{
 		case 1:
-			printf("Введите кол-во записей (меньше 50)\n");
+			printf("Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ Р·Р°РїРёСЃРµР№ (РјРµРЅСЊС€Рµ 50)\n");
 			scanf("%d", &kol);
 			addd(mus, kol);
 			break;
@@ -73,12 +73,12 @@ int main()
 			sort(mus, kol);
 			break;
 		case 5:
-			printf("Введите название файла\n");
+			printf("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°\n");
 			scanf("%s", &namefile);
 			write(namefile, mus, kol);
 			break;
 		case 6:
-			printf("Введите название файла\n");
+			printf("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ С„Р°Р№Р»Р°\n");
 			scanf("%s", &namefile);
 			read(namefile);
 			system("pause");
@@ -87,10 +87,10 @@ int main()
 		case 0:
 
 			flag1 = 0;
-			printf("Программа заверешна\n");
+			printf("РџСЂРѕРіСЂР°РјРјР° Р·Р°РІРµСЂРµС€РЅР°\n");
 			break;
 		default:
-			puts("Данный выбор невозможен");
+			puts("Р”Р°РЅРЅС‹Р№ РІС‹Р±РѕСЂ РЅРµРІРѕР·РјРѕР¶РµРЅ");
 
 		}
 
@@ -103,18 +103,18 @@ void addd(MUSIK* mus, int count)
 {
 	if (count > 50)
 	{
-		printf("Недостаточно места для записи");
+		printf("РќРµРґРѕСЃС‚Р°С‚РѕС‡РЅРѕ РјРµСЃС‚Р° РґР»СЏ Р·Р°РїРёСЃРё");
 
 	}
 	for (int z = 0; z < count; z++)
 	{
-		printf("Введите название песни = ");
+		printf("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїРµСЃРЅРё = ");
 		scanf("%s", &mus[z].name);
-		printf("Исполнитель = ");
+		printf("РСЃРїРѕР»РЅРёС‚РµР»СЊ = ");
 		scanf("%s", &mus[z].executor);
-		printf("Продолжительность (в секундах) = ");
+		printf("РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ (РІ СЃРµРєСѓРЅРґР°С…) = ");
 		scanf("%d", &mus[z].mn);
-		printf("Жанр = ");
+		printf("Р–Р°РЅСЂ = ");
 		scanf("%s", &mus[z].genre);
 		printf("\n");
 	}
@@ -122,11 +122,11 @@ void addd(MUSIK* mus, int count)
 void vivod(MUSIK* mus, int count)
 {
 	printf("---------------------------------------------------------------------\n");
-	printf("|| Название песни  ||  Исполнитель ||  Продолжительность ||  Жанр  ||\n");
+	printf("|| РќР°Р·РІР°РЅРёРµ РїРµСЃРЅРё  ||  РСЃРїРѕР»РЅРёС‚РµР»СЊ ||  РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ ||  Р–Р°РЅСЂ  ||\n");
 	printf("---------------------------------------------------------------------\n");
 	for (int q = 0; q < count; q++)
 	{
-		printf("||      %s     ||    %s        ||      %d Сек.       ||   %s   ||\n", mus[q].name, mus[q].executor, mus[q].mn, mus[q].genre);
+		printf("||      %s     ||    %s        ||      %d РЎРµРє.       ||   %s   ||\n", mus[q].name, mus[q].executor, mus[q].mn, mus[q].genre);
 		printf("--------------------------------------------------------------------\n");
 	}
 	system("pause");
@@ -136,28 +136,28 @@ void vivod(MUSIK* mus, int count)
 void menu2(MUSIK* mus, int count)
 {
 	int t;
-	printf("||%s|%s||%d Сек.||%s||\n", (mus + count)->name, (mus + count)->executor, (mus + count)->mn, (mus + count)->genre);
+	printf("||%s|%s||%d РЎРµРє.||%s||\n", (mus + count)->name, (mus + count)->executor, (mus + count)->mn, (mus + count)->genre);
 	printf("--------------------------------------------------------------------------\n");
 }
 void menu1()
 {
 	printf("---------------------------------------------------------------------\n");
-	printf("|| Название песни  ||  Исполнитель ||  Продолжительность ||  Жанр  ||\n");
+	printf("|| РќР°Р·РІР°РЅРёРµ РїРµСЃРЅРё  ||  РСЃРїРѕР»РЅРёС‚РµР»СЊ ||  РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ ||  Р–Р°РЅСЂ  ||\n");
 	printf("---------------------------------------------------------------------\n");
 }
 MUSIK search(MUSIK* mus, int count)
 {
 	char kr1[10];
 	int choice, kr2, kr3, kr4, kr5, flag2 = 1;
-	printf("Выберите критерий поиска\n");
-	printf("1.Название песни\n");
-	printf("2.Исполнитель\n");
-	printf("3.Продолжительность\n");
-	printf("4.Жанр\n");
+	printf("Р’С‹Р±РµСЂРёС‚Рµ РєСЂРёС‚РµСЂРёР№ РїРѕРёСЃРєР°\n");
+	printf("1.РќР°Р·РІР°РЅРёРµ РїРµСЃРЅРё\n");
+	printf("2.РСЃРїРѕР»РЅРёС‚РµР»СЊ\n");
+	printf("3.РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ\n");
+	printf("4.Р–Р°РЅСЂ\n");
 	scanf("%d", &choice);
 	if (choice == 1)
 	{
-		printf("Введите название песни\n");
+		printf("Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РїРµСЃРЅРё\n");
 		scanf("%s", kr1);
 		menu1();
 		for (int i = 0; i < count; i++)
@@ -173,7 +173,7 @@ MUSIK search(MUSIK* mus, int count)
 	}
 	if (choice == 2)
 	{
-		printf("Введите исполнителя\n");
+		printf("Р’РІРµРґРёС‚Рµ РёСЃРїРѕР»РЅРёС‚РµР»СЏ\n");
 		scanf("%s", &kr2);
 		menu1();
 		for (int i = 0; i < count; i++)
@@ -189,7 +189,7 @@ MUSIK search(MUSIK* mus, int count)
 	}
 	if (choice == 3)
 	{
-		printf("Введите продолжительность\n");
+		printf("Р’РІРµРґРёС‚Рµ РїСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ\n");
 		scanf("%d", &kr4);
 		menu1();
 		for (int i = 0; i < count; i++)
@@ -204,7 +204,7 @@ MUSIK search(MUSIK* mus, int count)
 	}
 	if (choice == 4)
 	{
-		printf("Жанр\n");
+		printf("Р–Р°РЅСЂ\n");
 		scanf("%s", &kr3);
 		menu1();
 		for (int i = 0; i < count; i++)
@@ -219,13 +219,13 @@ MUSIK search(MUSIK* mus, int count)
 	}
 	return *mus;
 }
-int writ(char* namefile, MUSIK* mus, int count)
+int write(char* namefile, MUSIK* mus, int count)
 {
 	FILE* data;
 	int i;
 	if ((data = fopen(namefile, "wt")) == NULL)
 	{
-		fprintf(stderr, "Файл нельзя открыть для записи\n");
+		fprintf(stderr, "Р¤Р°Р№Р» РЅРµР»СЊР·СЏ РѕС‚РєСЂС‹С‚СЊ РґР»СЏ Р·Р°РїРёСЃРё\n");
 		system("pause");
 		return -1;
 
@@ -233,17 +233,17 @@ int writ(char* namefile, MUSIK* mus, int count)
 	else
 	{
 		fprintf(data, "---------------------------------------------------------------------\n");
-		fprintf(data, "|| Название песни  ||  Исполнитель ||  Продолжительность ||  Жанр  ||\n");
+		fprintf(data, "|| РќР°Р·РІР°РЅРёРµ РїРµСЃРЅРё  ||  РСЃРїРѕР»РЅРёС‚РµР»СЊ ||  РџСЂРѕРґРѕР»Р¶РёС‚РµР»СЊРЅРѕСЃС‚СЊ ||  Р–Р°РЅСЂ  ||\n");
 		fprintf(data, "---------------------------------------------------------------------\n");
 		for (i = 0; i < count; i++)
 		{
-		fprintf(data, "||         %s      ||      %s      ||     %d Сек.        ||    %s  ||\n", mus[i].name, mus[i].executor, mus[i].mn, mus[i].genre);
+			fprintf(data, "||         %s      ||      %s      ||     %d РЎРµРє.        ||    %s  ||\n", mus[i].name, mus[i].executor, mus[i].mn, mus[i].genre);
 			fprintf(data, "-----------------------------------------------------------------\n");
 
 
 		}
 		fclose(data);
-		printf("Данные записаны\n");
+		printf("Р”Р°РЅРЅС‹Рµ Р·Р°РїРёСЃР°РЅС‹\n");
 		system("pause");
 	}
 	return 0;
@@ -255,7 +255,7 @@ int read(char* namefile)
 	open = fopen(namefile, "r");
 	if (open != NULL)
 	{
-		printf("Файл открыт\n");
+		printf("Р¤Р°Р№Р» РѕС‚РєСЂС‹С‚\n");
 		while (!feof(open))
 		{
 			fgets(file, 200, open);
@@ -268,7 +268,7 @@ int read(char* namefile)
 	}
 	else
 	{
-		printf("Файл не удалось открыть\n");
+		printf("Р¤Р°Р№Р» РЅРµ СѓРґР°Р»РѕСЃСЊ РѕС‚РєСЂС‹С‚СЊ\n");
 		system("pause");
 		return-1;
 	}
